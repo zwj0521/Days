@@ -1,0 +1,24 @@
+交替合并字符串
+char* mergeAlternately(char *word1, char *word2) {
+    int m = strlen(word1);
+    int n = strlen(word2);
+    int totallength = m+n+1;
+    char *res=(char*)malloc(totallength *sizeof(char));
+    int i,k=0;
+    while(i<n||i<m)
+    {
+        if(i<m)
+        {
+            res[k++]= word1[i];
+        }
+        if(i<n)
+        {
+            res[k++]=word2[i];
+        }
+        i++;
+    }
+     res[k] = '\0'; // 添加字符串结束符
+    return res;
+}
+动态分配的内存（通过 malloc）在函数结束后仍然有效，直到显式调用 free 释放。
+strlen函数是用来计算字符串长度的函数
